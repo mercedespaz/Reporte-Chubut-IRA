@@ -1,0 +1,81 @@
+/* Importa la fuente Manrope desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+
+/* Aplica la fuente Manrope a todo el documento */
+body {
+    font-family: 'Manrope', sans-serif;
+    color: #000000; /* Color de texto principal (azul oscuro) */
+    background-color: white; /* Color de fondo principal */
+}
+
+/* Estilos de encabezados */
+h1, h2, h3, h4, h5, h6 {
+    color: #1A4B8C; /* Azul más vibrante para encabezados */
+    font-weight: 700;
+    font-weight: 700;
+}
+
+p {
+  color: #666666;
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+
+/* Estilo para enlaces */
+a {
+    color: #3A7CA5; /* Azul medio vibrante */
+    text-decoration: none;
+}
+a:hover {
+    color: #1A4B8C; /* Azul más intenso */
+    text-decoration: underline;
+}
+
+/* Modificación de tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFA630; /* Naranja más oscuro y vibrante */
+}
+th {
+    background-color: #1A4B8C; /* Azul intenso para encabezados */
+    color: #eaa851; /* Naranja claro para texto */
+    padding: 10px;
+}
+td {
+    padding: 8px;
+    border: 1px solid #1A4B8C; /* Borde azul */
+}
+
+/* Botones personalizados */
+button, .btn {
+    background-color: #3A7CA5; /* Azul vibrante */
+    color: #eaa851; /* Naranja claro para texto */
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover, .btn:hover {
+    background-color: #1A4B8C; /* Azul más intenso al pasar mouse */
+    color: ;
+}
+
+/* Bloques de código */
+pre, code {
+    background-color: #1A4B8C; /* Azul intenso */
+    color: #eaa851; /* Naranja claro para texto */
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Estilos de cuadros (blockquotes) */
+blockquote {
+    border-left: 4px solid #3A7CA5; /* Azul vibrante */
+    background-color: #eaa851; /* Naranja claro de fondo */
+    color: #1A4B8C; /* Azul oscuro para texto */
+    padding: 10px 20px;
+    font-style: italic;
+}

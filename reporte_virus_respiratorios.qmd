@@ -1,0 +1,89 @@
+---
+lang: es 
+title: "Vigilancia de Infecciones Respiratorias Agudas"
+date: "`r Sys.Date()`"
+format:
+  html: 
+    embed-resources: true
+    author: "Dirección de Epidemiología"
+    toc: true
+    toc-title: "Índice"
+    toc-depth: 3
+    toc-location: left
+    css: "style/style.css"
+    theme: cerulean
+editor: visual
+reference-location: margin
+citation-location: margin
+execute: 
+  warning: false
+  message: false
+smooth-scroll: true
+code-copy: true
+---
+
+El análisis de los eventos agrupados relacionados a la vigilancia de infecciones respiratorias agudas se realizó con los datos de aquellos establecimientos que notificaron al SNVS 2.0, por lo tanto, los N totales puede presentar una diferencia a lo publicado en semanas anteriores.
+
+La notificación oportuna de los datos en SISA, permite optimizar la gestión de la información, la evaluación de la actividad y la toma de decisiones.
+
+```{r}
+#| message: false 
+#| echo: false
+#| results: 'hide'
+#| warning: false
+
+source("Scripts/Librerias.R")
+source("Scripts/procesamiento_vr_nominal.R")
+source("Scripts/Graficos_ambulatorios.R")
+source("Scripts/Graficos_internados.R")
+```
+
+## **Vigilancia de virus respiratorios en internados y/o ambulatorios**
+
+Determinaciones virales positivas. Chubut. SE `r semana_analisis_minima`- `r semana_analisis_maxima`. Año `r anio_analisis`. (N= `r total_casos_1`).
+
+```{r}
+#| message: false 
+#| echo: false
+#| warning: false
+
+grafico_casos_total
+```
+
+## **Vigilancia de virus respiratorios en ambulatorios**
+
+Determinaciones virales positivas en ambulatorios según agente detectado. Chubut. SE `r semana_analisis_minima`- `r semana_analisis_maxima`. Año `r anio_analisis`. (N= `r total_casos_ambulatorios`).
+
+```{r}
+#| message: false 
+#| echo: false
+#| warning: false
+
+grafico_casos_ambulatorios
+```
+
+## **Vigilancia de virus respiratorios en internados**
+
+A la semana `r semana_analisis_maxima` del año `r anio_analisis` se identificaron `r total_casos_internados_1` determinaciones positivas para virus respiratorios en los eventos “Internados y/o fallecido por COVID o IRA” y “Unidad Centinela de Infección Respiratoria Aguda Grave (UC-IRAG)”.
+
+Determinaciones virales positivas en internados según agente detectado. Chubut. SE `r semana_analisis_minima`- `r semana_analisis_maxima`. Año `r anio_analisis`. (N= `r total_casos_internados_1`).
+
+```{r}
+#| message: false 
+#| echo: false
+#| warning: false
+
+Graficos_casos_internados 
+```
+
+### **Distribución virus respiratorios por grupo etario en internados**
+
+Determinaciones virales positivas por grupo etario y agente detectado. Chubut. SE `r semana_analisis_minima`- `r semana_analisis_maxima`. Año `r anio_analisis` (N= `r total_casos_internados_etario`).
+
+```{r}
+#| message: false 
+#| echo: false
+#| warning: false
+
+Graficos_casos_etarios_internados
+```
