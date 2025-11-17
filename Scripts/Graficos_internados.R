@@ -9,6 +9,16 @@
 #Filtro eventos ambulatorios
 eventos_internados <- c("Internado y/o fallecido por COVID o IRA", "Unidad Centinela de Infección Respiratoria Aguda Grave (UC-IRAG)")
 
+#Paleta de colores para cada virus
+paleta <-c("Adenovirus" = "#cc66ff",
+           "Influenza A"= "#f35bc0",
+           "Influenza B" = "#00b050",
+           "Metaneumovirus" =  "#a6a6a6",
+           "Parainfluenza" = "#ed7d31",
+           "Rinovirus" = "#ffff00",
+           "SARS-CoV-2" = "#0070c0",
+           "VSR" = "#00b0f0")
+
 
 # Contar los casos por semana y por grupo de virus, con los filtros 
 casos_completos_internados <- vr_final %>%
@@ -26,11 +36,13 @@ total_casos_internados_1 <- sum(casos_completos_internados$n_casos)
 # CÓDIGO GRÁFICO DE BARRAS APILADAS
 #-------------------------------------------------------------------
 
+#Gráfico barras apiladas 
+
 Graficos_casos_internados <- ggplot(casos_completos_internados, aes(x = SEMANA_MIN, y = n_casos, fill = VIRUS_GRUPO)) +
   geom_col() +
   scale_fill_manual(values = paleta) +
   labs(
-    x = "Semana Epidemiológica",
+    x = "Semana epidemiológica",
     y = "Número de determinaciones",
     caption = "Fuente: elabroración propia a partir de datos del SNVS 2.0"
   ) +
@@ -83,7 +95,7 @@ casos_etarios_internados <- vr_final %>% mutate(
   filter(VIRUS_GRUPO != "Otros virus")
 
 #CONTAR CASOS
-total_casos_internados_etario <- sum(casos_etarios_internados$n_casos)
+total_casos_internados_etario_1 <- sum(casos_etarios_internados$n_casos)
 
 
 # 3. Crear el gráfico de barras apiladas con el factor ordenado
@@ -92,7 +104,7 @@ Graficos_casos_etarios_internados <- ggplot(casos_etarios_internados, aes(x = GR
   coord_flip() +
   scale_fill_manual(values = paleta) +
   labs(
-    x = "Grupo Etario", 
+    x = "Grupo etario", 
     y = "Número de determinaciones") +
   theme_minimal() +
   theme(
@@ -102,5 +114,26 @@ Graficos_casos_etarios_internados <- ggplot(casos_etarios_internados, aes(x = GR
   ) 
 
 
-Graficos_casos_etarios_internados
+#-------------------------------------------------------------------
+# 5. TEXTO ENTIQUECIDO PARA VIRUS POR GRUPO ETARIO
+#-------------------------------------------------------------------
 
+virus_predominantes <- casos_etarios_internados %>%
+  group_by(VIRUS_GRUPO) %>%
+  slice_max(order_by = n_casos, 
+            n = 1, 
+            with_ties = FALSE)
+
+grupo_max_list <- setNames(str_to_lower(virus_predominantes$GRUPO_ETARIO), virus_predominantes$VIRUS_GRUPO)
+casos_max_list <- setNames(virus_predominantes$n_casos, virus_predominantes$VIRUS_GRUPO)
+
+#print(grupo_max_list)
+
+#grupo_max_list[["Influenza A"]] 
+#casos_max_list[["Influenza A"]]
+# 
+# 
+# virus_predominantes <- casos_etarios_internados %>%
+#   arrange(desc(n_casos)) %>%
+#   slice_max(order_by = n_casos, n = 5)
+#   
