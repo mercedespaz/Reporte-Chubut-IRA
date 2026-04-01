@@ -90,5 +90,5 @@ Graficos_casos_etarios_internados
 
 Entre las SE `r semana_analisis_minima` y la SE `r semana_analisis_maxima` se registraron `r total_casos_internados_etario_1` determinaciones virales positivas en internados. 
 
-Para **VSR**, el grupo más afectado fue el de `r grupo_max_list["VSR"]` con `r casos_max_list["VSR"]` determinaciones positivas. El **Sars-Cov-2** predominó en el grupo de `r grupo_max_list["SARS-CoV-2"]` con `r casos_max_list["SARS-CoV-2"]` determinaciones positivas. Por último, **Influenza A** predominó en el grupo de `r grupo_max_list["Influenza A"]` con `r casos_max_list["Influenza A"]` determinaciones positivas.
+Para **VSR**, el grupo más afectado fue el de `r grupo_max_list["VSR"]` con `r casos_max_list["VSR"]` determinaciones positivas. El **Sars-Cov-2** predominó en el grupo de `r grupo_max_list["SARS-CoV-2"]` con `r casos_max_list["SARS-CoV-2"]` determinaciones positivas. Por último, **Influenza A** predominó en el grupo de `r grupo_max_list["Influenza A"]` con `r casos_max_list["Influenza A"]` determinaciones con resultado positivo.
 
